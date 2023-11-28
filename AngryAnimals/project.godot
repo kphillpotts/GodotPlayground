@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="AngryAnimals"
+run/main_scene="res://scenes/level/level.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+
+[autoload]
+
+SignalManager="*res://singletons/signal_manager.gd"
 
 [display]
 
