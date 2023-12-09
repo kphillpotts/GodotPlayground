@@ -13,13 +13,19 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_ntkk8")
 
 [node name="Cup" parent="." instance=ExtResource("2_acp2m")]
-position = Vector2(212, 462)
+position = Vector2(531, 462)
+
+[node name="Cup2" parent="." instance=ExtResource("2_acp2m")]
+position = Vector2(338, 462)
+
+[node name="Cup3" parent="." instance=ExtResource("2_acp2m")]
+position = Vector2(720, 462)
 
 [node name="DebugLabel" type="Label" parent="."]
 offset_left = 24.0
 offset_top = 24.0
-offset_right = 424.0
-offset_bottom = 102.0
+offset_right = 1011.0
+offset_bottom = 154.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "ffadsdsfgaslkgsd;ld
 gasjh;ldgsh;ldgsakh;ldgsh;ldgsh;lkdgsha;lkdgsha;l kdghsa;ldg hs;lkdgh ;lkdgshl;kdgh;aldsgdgsa
@@ -29,4 +35,4 @@ dsfkjhdsf;lh"
 autowrap_mode = 2
 
 [node name="AnimalStart" type="Marker2D" parent="."]
-position = Vector2(150, 130)
+position = Vector2(150, 331)
