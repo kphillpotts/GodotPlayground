@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1e0vl8bf57ox"]
+
+[ext_resource type="Texture2D" uid="uid://bb85vvdtfbee5" path="res://assets/env/MainBG.png" id="1_g6em5"]
+[ext_resource type="AudioStream" uid="uid://dtgx5upfu4h3l" path="res://assets/audio/birdsong.wav" id="2_qayfq"]
+[ext_resource type="LabelSettings" uid="uid://lqsv26mi20g1" path="res://assets/LG_72_Title.tres" id="3_e4ihv"]
+[ext_resource type="PackedScene" uid="uid://c4brdcy1f7m7g" path="res://scenes/LevelButton/level_button.tscn" id="4_nr6g2"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g6em5")
+expand_mode = 3
+
+[node name="BirdSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qayfq")
+autoplay = true
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+rotation = 0.0349066
+theme_override_constants/margin_top = 32
+
+[node name="Label" type="Label" parent="MC"]
+layout_mode = 2
+text = "ANGRY ANIMALS"
+label_settings = ExtResource("3_e4ihv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -38.0
+offset_right = 512.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="LevelButton" parent="HB" instance=ExtResource("4_nr6g2")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HB" instance=ExtResource("4_nr6g2")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="HB" instance=ExtResource("4_nr6g2")]
+layout_mode = 2
+level_number = 3

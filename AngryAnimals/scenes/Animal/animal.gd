@@ -4,8 +4,8 @@ extends RigidBody2D
 @onready var launch_sound = $LaunchSound
 @onready var collision_sound = $CollisionSound
 
-const DRAG_LIM_MAX: Vector2 = Vector2(0,60)
-const DRAG_LIM_MIN: Vector2 = Vector2(-60,0)
+const DRAG_LIM_MAX: Vector2 = Vector2(0,120)
+const DRAG_LIM_MIN: Vector2 = Vector2(-120,0)
 const IMPULSE_MULT: float = 20.0
 const FIRE_DELAY: float = 0.25
 const STOPPED: float = 0.1

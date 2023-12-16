@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1i1grdfc6xdm"]
+[gd_scene load_steps=4 format=3 uid="uid://1i1grdfc6xdm"]
 
 [ext_resource type="Texture2D" uid="uid://bt456cm46gkd1" path="res://assets/scene/colored_castle.png" id="1_ntkk8"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_qtong"]
-[ext_resource type="PackedScene" uid="uid://curyo7bq6cwll" path="res://scenes/Cup/cup.tscn" id="2_acp2m"]
 [ext_resource type="PackedScene" uid="uid://dvsjfx7p2l5kk" path="res://scenes/Water/water.tscn" id="4_novwd"]
 
 [node name="Level" type="Node2D"]
@@ -12,15 +11,6 @@ script = ExtResource("1_qtong")
 position = Vector2(512, 301)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_ntkk8")
-
-[node name="Cup" parent="." instance=ExtResource("2_acp2m")]
-position = Vector2(531, 462)
-
-[node name="Cup2" parent="." instance=ExtResource("2_acp2m")]
-position = Vector2(338, 462)
-
-[node name="Cup3" parent="." instance=ExtResource("2_acp2m")]
-position = Vector2(720, 462)
 
 [node name="DebugLabel" type="Label" parent="."]
 offset_left = 24.0
