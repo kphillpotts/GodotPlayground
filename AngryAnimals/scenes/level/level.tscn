@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://1i1grdfc6xdm"]
+[gd_scene load_steps=6 format=3 uid="uid://1i1grdfc6xdm"]
 
 [ext_resource type="Texture2D" uid="uid://bt456cm46gkd1" path="res://assets/scene/colored_castle.png" id="1_ntkk8"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_qtong"]
 [ext_resource type="PackedScene" uid="uid://dvsjfx7p2l5kk" path="res://scenes/Water/water.tscn" id="4_novwd"]
+[ext_resource type="PackedScene" uid="uid://bf7rp5wfk20qu" path="res://scenes/GameUI/game_ui.tscn" id="4_r10ak"]
+[ext_resource type="PackedScene" uid="uid://bwquo28gly7gr" path="res://scenes/LaunchArea/launch_area.tscn" id="5_uw441"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qtong")
+
+[node name="GameUI" parent="." instance=ExtResource("4_r10ak")]
 
 [node name="ColoredCastle" type="Sprite2D" parent="."]
 position = Vector2(512, 301)
@@ -13,6 +17,7 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_ntkk8")
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 1011.0
@@ -26,6 +31,9 @@ dsfkjhdsf;lh"
 autowrap_mode = 2
 
 [node name="AnimalStart" type="Marker2D" parent="."]
-position = Vector2(150, 331)
+position = Vector2(152, 303)
 
 [node name="Water" parent="." instance=ExtResource("4_novwd")]
+
+[node name="LaunchArea" parent="." instance=ExtResource("5_uw441")]
+position = Vector2(25, 367)
