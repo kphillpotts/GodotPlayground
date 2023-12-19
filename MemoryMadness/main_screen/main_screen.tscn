@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://b706daogkndox"]
+
+[ext_resource type="FontFile" uid="uid://7tldber6cqwh" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_s80y0"]
+[ext_resource type="PackedScene" uid="uid://dvdrja2oj40f7" path="res://front_sprite/front_sprite.tscn" id="2_c5ali"]
+[ext_resource type="PackedScene" uid="uid://d3k63v66mfx0e" path="res://level_button/level_button.tscn" id="2_rasqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_phd88"]
+font = ExtResource("1_s80y0")
+font_size = 84
+font_color = Color(0.92549, 0.988235, 0.796078, 1)
+outline_size = 6
+outline_color = Color(0.396078, 0.639216, 0.0509804, 1)
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.141176, 0.54902, 0.215686)
+
+[node name="VB" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer4" type="Control" parent="VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="VB"]
+layout_mode = 2
+text = "MEMORY MADNESS"
+label_settings = SubResource("LabelSettings_phd88")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBLevels" type="HBoxContainer" parent="VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="LevelButton" parent="VB/HBLevels" instance=ExtResource("2_rasqu")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="VB/HBLevels" instance=ExtResource("2_rasqu")]
+layout_mode = 2
+
+[node name="LevelButton3" parent="VB/HBLevels" instance=ExtResource("2_rasqu")]
+layout_mode = 2
+
+[node name="LevelButton4" parent="VB/HBLevels" instance=ExtResource("2_rasqu")]
+layout_mode = 2
+
+[node name="LevelButton5" parent="VB/HBLevels" instance=ExtResource("2_rasqu")]
+layout_mode = 2
+
+[node name="LevelButton6" parent="VB/HBLevels" instance=ExtResource("2_rasqu")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBSprites" type="HBoxContainer" parent="VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 72
+
+[node name="FrontSprite" parent="VB/HBSprites" instance=ExtResource("2_c5ali")]
+layout_mode = 2
+
+[node name="FrontSprite2" parent="VB/HBSprites" instance=ExtResource("2_c5ali")]
+layout_mode = 2
+
+[node name="FrontSprite3" parent="VB/HBSprites" instance=ExtResource("2_c5ali")]
+layout_mode = 2
+
+[node name="FrontSprite4" parent="VB/HBSprites" instance=ExtResource("2_c5ali")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VB"]
+layout_mode = 2
+size_flags_vertical = 3
