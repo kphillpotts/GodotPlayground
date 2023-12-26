@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvevtoxcq8gyx"]
+[gd_scene load_steps=4 format=3 uid="uid://bvevtoxcq8gyx"]
 
 [ext_resource type="Texture2D" uid="uid://c5wgwfsicfyl3" path="res://assets/images/backgroundEmpty.png" id="1_kdqgw"]
 [ext_resource type="PackedScene" uid="uid://b706daogkndox" path="res://main_screen/main_screen.tscn" id="2_y6psj"]
+[ext_resource type="PackedScene" uid="uid://dydewnaunfwcy" path="res://game_screen/game_screen.tscn" id="3_aq4l6"]
 
 [node name="MasterScene" type="CanvasLayer"]
 
@@ -14,3 +15,5 @@ grow_vertical = 2
 texture = ExtResource("1_kdqgw")
 
 [node name="MainScreen" parent="." instance=ExtResource("2_y6psj")]
+
+[node name="GameScreen" parent="." instance=ExtResource("3_aq4l6")]
