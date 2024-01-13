@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+SignalManager="*res://signletons/SignalManager.gd"
 GameManager="*res://signletons/game_manager.gd"
 ImageManager="*res://signletons/image_manager.gd"
 SoundManager="*res://signletons/sound_manager.gd"

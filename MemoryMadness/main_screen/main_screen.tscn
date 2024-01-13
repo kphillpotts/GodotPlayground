@@ -1,16 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b706daogkndox"]
+[gd_scene load_steps=10 format=3 uid="uid://b706daogkndox"]
 
-[ext_resource type="FontFile" uid="uid://7tldber6cqwh" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_s80y0"]
 [ext_resource type="Script" path="res://main_screen/main_screen.gd" id="1_vg1uh"]
 [ext_resource type="PackedScene" uid="uid://dvdrja2oj40f7" path="res://front_sprite/front_sprite.tscn" id="2_c5ali"]
 [ext_resource type="PackedScene" uid="uid://d3k63v66mfx0e" path="res://level_button/level_button.tscn" id="2_rasqu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_phd88"]
-font = ExtResource("1_s80y0")
-font_size = 84
-font_color = Color(0.92549, 0.988235, 0.796078, 1)
-outline_size = 6
-outline_color = Color(0.396078, 0.639216, 0.0509804, 1)
+[ext_resource type="LabelSettings" uid="uid://cbn5nst5rnt21" path="res://assets/GM_84_Green.tres" id="3_r0svu"]
+[ext_resource type="Texture2D" uid="uid://cxht45nlunmyf" path="res://assets/ui/blue_button00.png" id="5_aj0ex"]
+[ext_resource type="Texture2D" uid="uid://8dw4cvxq057f" path="res://assets/ui/yellow_button00.png" id="6_kcvtg"]
+[ext_resource type="Texture2D" uid="uid://qgn6i6libyt5" path="res://assets/ui/green_button00.png" id="7_dwkah"]
+[ext_resource type="PackedScene" uid="uid://cm7boqwqtyv1b" path="res://options_screen/options_screen.tscn" id="8_se8l4"]
+[ext_resource type="LabelSettings" path="res://assets/GM_32_White.tres" id="8_ubcjt"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -46,7 +44,7 @@ size_flags_vertical = 3
 [node name="TitleLabel" type="Label" parent="VB"]
 layout_mode = 2
 text = "MEMORY MADNESS"
-label_settings = SubResource("LabelSettings_phd88")
+label_settings = ExtResource("3_r0svu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -83,3 +81,36 @@ layout_mode = 2
 [node name="Spacer" type="Control" parent="VB"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="OptionsButton" type="TextureButton" parent="VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_aj0ex")
+texture_pressed = ExtResource("6_kcvtg")
+texture_hover = ExtResource("7_dwkah")
+
+[node name="Label" type="Label" parent="VB/OptionsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -13.0
+offset_right = 35.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+label_settings = ExtResource("8_ubcjt")
+
+[node name="Spacer5" type="Control" parent="VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsScreen" parent="." instance=ExtResource("8_se8l4")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VB/OptionsButton" to="." method="_on_options_button_pressed"]

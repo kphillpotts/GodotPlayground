@@ -21,7 +21,11 @@ func play_sound(player: AudioStreamPlayer, key: String) -> void:
 		return
 	player.stop()
 	player.stream = SOUNDS[key]
+	player.volume_db = linear_to_db(GameManager.music_volume)
 	player.play()
 
 func play_button_click(player: AudioStreamPlayer) -> void:
 	play_sound(player, SOUND_SELECT_BUTTON)
+
+func play_tile_click(player: AudioStreamPlayer) -> void:
+	play_sound(player, SOUND_SELECT_TILE)
