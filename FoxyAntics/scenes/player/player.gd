@@ -11,6 +11,9 @@ const MAX_FALL: float = 400.0
 const HURT_TIME: float = 0.3
 const JUMP_VELOCITY: float = -400
 
+enum PLAYER_STATE { IDLE, RUN, JUMP, FALL, HURT }
+var _state: PLAYER_STATE = PLAYER_STATE.IDLE
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +26,8 @@ func _physics_process(delta):
 		velocity.y += GRAVITY * delta
 		
 	get_input()
-	
 	move_and_slide()
+	calculate_states()
 
 func get_input():
 	
@@ -32,8 +35,10 @@ func get_input():
 	
 	if Input.is_action_pressed("left") == true:
 		velocity.x = -RUN_SPEED
+		sprite_2d.flip_h = true
 	elif Input.is_action_pressed("right") == true:
 		velocity.x = RUN_SPEED
+		sprite_2d.flip_h = false
 	
 	if Input.is_action_just_pressed("jump") == true and is_on_floor() == true:
 		velocity.y = JUMP_VELOCITY
@@ -41,3 +46,35 @@ func get_input():
 	velocity.y = clampf(velocity.y, JUMP_VELOCITY, MAX_FALL)
 	
 
+func calculate_states() -> void:
+	if _state == PLAYER_STATE.HURT:
+		return
+	
+	if is_on_floor() == true:
+		if velocity.x == 0:
+			set_state(PLAYER_STATE.IDLE)
+		else:
+			set_state(PLAYER_STATE.RUN)				
+	else:
+		if velocity.y > 0:
+			set_state(PLAYER_STATE.FALL)
+		else:
+			set_state(PLAYER_STATE.JUMP)
+
+func set_state (new_state: PLAYER_STATE) -> void:
+	if new_state == _state:
+		return
+		
+	_state = new_state
+	
+	match _state:
+		PLAYER_STATE.IDLE:
+			animation_player.play("idle")
+		PLAYER_STATE.FALL:
+			animation_player.play("fall")
+		PLAYER_STATE.HURT:
+			animation_player.play("hurt")
+		PLAYER_STATE.JUMP:
+			animation_player.play("jump")
+		PLAYER_STATE.RUN:
+			animation_player.play("run")			
