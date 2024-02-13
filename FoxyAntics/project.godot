@@ -14,6 +14,10 @@ config/name="FoxyAntics"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.png"
 
+[autoload]
+
+SoundManager="*res://singletons/sound_manager.gd"
+
 [display]
 
 window/size/viewport_width=1024

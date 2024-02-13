@@ -131,3 +131,16 @@ libraries = {
 "": SubResource("AnimationLibrary_aykba")
 }
 autoplay = "idle"
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -26.0
+offset_right = 263.0
+offset_bottom = 181.0
+scale = Vector2(0.0841535, 0.0841535)
+theme_override_font_sizes/font_size = 48
+text = "placeholder
+text
+some"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
