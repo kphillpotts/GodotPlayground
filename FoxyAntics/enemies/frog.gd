@@ -62,6 +62,3 @@ func _on_jump_timer_timeout():
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	print("frog sees player")
 	_seen_player = true
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	pass # Replace with function body.
