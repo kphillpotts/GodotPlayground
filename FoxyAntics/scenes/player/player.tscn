@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5p85vg04368a"]
+[gd_scene load_steps=12 format=3 uid="uid://5p85vg04368a"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_clo84"]
 [ext_resource type="Texture2D" uid="uid://rhmmro5kwer" path="res://assets/player/player.png" id="1_usgay"]
@@ -114,7 +114,12 @@ _data = {
 "run": SubResource("Animation_ykhp2")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urouq"]
+radius = 6.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
 script = ExtResource("1_clo84")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -144,3 +149,13 @@ text
 some"
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_urouq")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

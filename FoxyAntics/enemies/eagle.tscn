@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dywbbdwfh4nnd"]
+[gd_scene load_steps=11 format=3 uid="uid://dywbbdwfh4nnd"]
 
 [ext_resource type="PackedScene" uid="uid://dpa0jyu5jcrif" path="res://enemies/enemy_base.tscn" id="1_p7bjd"]
 [ext_resource type="Script" path="res://enemies/eagle.gd" id="2_ikpck"]
@@ -43,8 +43,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2dig"]
 size = Vector2(16, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihmpf"]
+radius = 8.06226
+
 [node name="Eagle" instance=ExtResource("1_p7bjd")]
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_ikpck")
 
@@ -65,5 +67,8 @@ wait_time = 3.0
 [node name="PlayerDetector" type="RayCast2D" parent="." index="4"]
 position = Vector2(0, 3)
 target_position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_ihmpf")
 
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
