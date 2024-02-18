@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://lviyibr1w0xr"]
+[gd_scene load_steps=11 format=3 uid="uid://lviyibr1w0xr"]
 
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_2igrx"]
 [ext_resource type="Texture2D" uid="uid://r6dgnso7vqut" path="res://assets/tiles/Terrain (16x16).png" id="1_h8fgj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b62yd2a1v48sl" path="res://enemies/snail.tscn" id="3_xgw28"]
 [ext_resource type="PackedScene" uid="uid://duy7vp0i2bbjt" path="res://enemies/frog.tscn" id="6_df4eo"]
 [ext_resource type="PackedScene" uid="uid://dywbbdwfh4nnd" path="res://enemies/eagle.tscn" id="7_c5hpc"]
+[ext_resource type="PackedScene" uid="uid://b5s06jc7k1cwf" path="res://Pickups/fruit_pick_up.tscn" id="8_ctobl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ttu6"]
 texture = ExtResource("1_h8fgj")
@@ -547,4 +548,7 @@ position = Vector2(266, -161)
 position = Vector2(723, -46)
 
 [node name="Eagle" parent="." instance=ExtResource("7_c5hpc")]
-position = Vector2(401, -244)
+position = Vector2(261, -278)
+
+[node name="FruitPickUp" parent="." instance=ExtResource("8_ctobl")]
+position = Vector2(317, -49)

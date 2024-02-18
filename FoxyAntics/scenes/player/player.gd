@@ -2,20 +2,26 @@ extends CharacterBody2D
 
 class_name Player
 
+
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var debug_label = $DebugLabel
 @onready var sound_player = $SoundPlayer
 @onready var shooter = $Shooter
+@onready var animation_player_invincible = $AnimationPlayerInvincible
+@onready var invincible_timer = $InvincibleTimer
+@onready var hurt_timer = $HurtTimer
+
 
 const GRAVITY: float = 1000.0
 const RUN_SPEED: float = 120.0
 const MAX_FALL: float = 400.0
-const HURT_TIME: float = 0.3
 const JUMP_VELOCITY: float = -400
+const HURT_JUMP_VELOCITY: Vector2 = Vector2(0,-150)
 
 enum PLAYER_STATE { IDLE, RUN, JUMP, FALL, HURT }
 var _state: PLAYER_STATE = PLAYER_STATE.IDLE
+var invincible: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,8 +44,9 @@ func _physics_process(delta):
 
 
 func update_debug_label() -> void:
-	debug_label.text = "floor:%s\n%s\n%.0f,%.0f" % [
+	debug_label.text = "floor:%s inv:%s\n%s\n%.0f,%.0f" % [
 		is_on_floor(), 
+		invincible,
 		PLAYER_STATE.keys()[_state],
 		velocity.x, velocity.y		
 	]
@@ -52,7 +59,9 @@ func shoot() -> void:
 
 
 func get_input():
-	
+	if _state == PLAYER_STATE.HURT:
+		return
+		
 	velocity.x = 0
 	
 	if Input.is_action_pressed("left") == true:
@@ -106,6 +115,31 @@ func set_state (new_state: PLAYER_STATE) -> void:
 		PLAYER_STATE.RUN:
 			animation_player.play("run")			
 
+func apply_hurt_jump() -> void:
+	set_state(PLAYER_STATE.HURT)
+	animation_player.play("hurt")
+	velocity = HURT_JUMP_VELOCITY
+	hurt_timer.start()
+
+func go_invincible() -> void:
+	invincible = true
+	invincible_timer.start()
+	animation_player_invincible.play("Invincible")
+
+func apply_hit() -> void:
+	if invincible == true:
+		return
+	go_invincible()
+	apply_hurt_jump()
+	SoundManager.play_clip(sound_player, SoundManager.SOUND_DAMAGE)
 
 func _on_hit_box_area_entered(area):
-	print("Player HitBox: ", area)
+	apply_hit()
+
+func _on_invincible_timer_timeout():
+	invincible = false
+	animation_player_invincible.stop()
+
+
+func _on_hurt_timer_timeout():
+	set_state(PLAYER_STATE.IDLE)
