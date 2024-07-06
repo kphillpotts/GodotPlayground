@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kewct17ccr3l"]
+[gd_scene load_steps=10 format=3 uid="uid://kewct17ccr3l"]
 
 [ext_resource type="TileSet" uid="uid://df1xix1e7op6h" path="res://resources/tileset.tres" id="1_avxa6"]
 [ext_resource type="PackedScene" uid="uid://bcbqtlk2407ql" path="res://scenes/manager/enemy_manager.tscn" id="1_e8y5r"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfnlkk61lbtne" path="res://scenes/ui/arena_time_ui.tscn" id="5_3pl64"]
 [ext_resource type="PackedScene" uid="uid://c5nfe587fue0p" path="res://scenes/manager/arena_time_manager.tscn" id="6_eqyg3"]
 [ext_resource type="PackedScene" uid="uid://dvcbf6alqtrr0" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="7_u1ywh"]
+[ext_resource type="PackedScene" uid="uid://bo3olrvlejbe8" path="res://scenes/ui/experience_bar.tscn" id="9_lpjxx"]
 
 [node name="Main" type="Node"]
 
@@ -41,3 +42,6 @@ position = Vector2(80, 66)
 
 [node name="ExperienceVial4" parent="." instance=ExtResource("7_u1ywh")]
 position = Vector2(544, 53)
+
+[node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("9_lpjxx")]
+experience_manager = NodePath("../ExperienceManager")
