@@ -15,6 +15,14 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameEvents="*res://scenes/autoloads/game_events.tscn"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [display]
 
 window/size/viewport_width=640
@@ -56,8 +64,11 @@ move_down={
 
 [layer_names]
 
-2d_physics/layer_1="player"
-2d_physics/layer_2="enemy"
+2d_physics/layer_1="terrain"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="enemy_collission"
+2d_physics/layer_5="player_pickup"
 
 [rendering]
 
