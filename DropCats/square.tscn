@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhlnt11xmhshx"]
+
+[ext_resource type="Texture2D" uid="uid://dotbqyn1rvfqy" path="res://images/Red_square.svg" id="1_xi710"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f2xg4"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwql6"]
+size = Vector2(53, 54)
+
+[node name="Square" type="RigidBody2D"]
+mass = 10.32
+physics_material_override = SubResource("PhysicsMaterial_f2xg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_xi710")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_uwql6")

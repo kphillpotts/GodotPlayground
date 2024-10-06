@@ -3,12 +3,15 @@ extends Node
 @export var sword_ability: PackedScene
 @onready var timer = $Timer
 var damage = 5
+var base_wait_time
 
 const MAX_RANGE = 75
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	base_wait_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func on_timer_timeout():
@@ -44,3 +47,12 @@ func on_timer_timeout():
 	# get the direction vector between the eneemy and the sword
 	var enemy_direction = enemies[0].global_position - sword_instance.global_position
 	sword_instance.rotation = enemy_direction.angle()
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id != "sword_rate":
+		return
+	
+	var percent_redutinon = current_upgrades["sword_rate"]["quantity"] * .1
+	$Timer.wait_time = base_wait_time * (1 - percent_redutinon)
+	$Timer.start()
+	print($Timer.wait_time)

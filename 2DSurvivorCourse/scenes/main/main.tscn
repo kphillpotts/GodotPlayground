@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ch15avbogeftd" path="res://scenes/game_object/player/player.tscn" id="1_w8u5w"]
 [ext_resource type="PackedScene" uid="uid://desnp8bv1aibb" path="res://scenes/manager/experience_manager.tscn" id="2_a86wn"]
 [ext_resource type="PackedScene" uid="uid://dfnlkk61lbtne" path="res://scenes/ui/arena_time_ui.tscn" id="5_3pl64"]
+[ext_resource type="PackedScene" uid="uid://ctw241j0u8tn3" path="res://scenes/manager/upgrade_manager.tscn" id="5_k886f"]
 [ext_resource type="PackedScene" uid="uid://c5nfe587fue0p" path="res://scenes/manager/arena_time_manager.tscn" id="6_eqyg3"]
-[ext_resource type="PackedScene" uid="uid://dvcbf6alqtrr0" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="7_u1ywh"]
 [ext_resource type="PackedScene" uid="uid://bo3olrvlejbe8" path="res://scenes/ui/experience_bar.tscn" id="9_lpjxx"]
 
 [node name="Main" type="Node"]
@@ -21,6 +21,9 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("6_eqyg3")]
 
+[node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("5_k886f")]
+experience_manager = NodePath("../ExperienceManager")
+
 [node name="GameCamera" parent="." instance=ExtResource("1_jfm1g")]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -30,18 +33,6 @@ layer_0/tile_data = PackedInt32Array(1376295, 393216, 3, 1310759, 0, 4, 1245223,
 
 [node name="Player" parent="." instance=ExtResource("1_w8u5w")]
 position = Vector2(325, 175)
-
-[node name="ExperienceVial" parent="." instance=ExtResource("7_u1ywh")]
-position = Vector2(560, 260)
-
-[node name="ExperienceVial2" parent="." instance=ExtResource("7_u1ywh")]
-position = Vector2(149, 299)
-
-[node name="ExperienceVial3" parent="." instance=ExtResource("7_u1ywh")]
-position = Vector2(80, 66)
-
-[node name="ExperienceVial4" parent="." instance=ExtResource("7_u1ywh")]
-position = Vector2(544, 53)
 
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("9_lpjxx")]
 experience_manager = NodePath("../ExperienceManager")

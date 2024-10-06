@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://diyp86wwlyea0"]
+
+[ext_resource type="PackedScene" uid="uid://nvdcwqc6wymt" path="res://ball.tscn" id="1_h1ynj"]
+[ext_resource type="Script" path="res://main.gd" id="1_y3l5k"]
+[ext_resource type="PackedScene" uid="uid://c4hg40g4xrjcg" path="res://floor.tscn" id="2_vgpcc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5biaw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_y3l5k")
+ballModel = ExtResource("1_h1ynj")
+
+[node name="Ball" parent="." instance=ExtResource("1_h1ynj")]
+position = Vector2(660, 0)
+
+[node name="Ball2" parent="." instance=ExtResource("1_h1ynj")]
+position = Vector2(784, 0)
+
+[node name="Ball3" parent="." instance=ExtResource("1_h1ynj")]
+position = Vector2(662, -148)
+ball_scale = 0.5
+
+[node name="Ball4" parent="." instance=ExtResource("1_h1ynj")]
+position = Vector2(772, -158)
+physics_material_override = SubResource("PhysicsMaterial_5biaw")
+
+[node name="Ball5" parent="." instance=ExtResource("1_h1ynj")]
+position = Vector2(784, 0)
+
+[node name="Floor" parent="." instance=ExtResource("2_vgpcc")]
+position = Vector2(680, 604)
+
+[node name="Floor2" parent="." instance=ExtResource("2_vgpcc")]
+position = Vector2(128, 604)
+rotation = -1.5708
+
+[node name="Floor3" parent="." instance=ExtResource("2_vgpcc")]
+position = Vector2(1044, 604)
+rotation = -1.5708
